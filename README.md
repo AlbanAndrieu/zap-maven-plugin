@@ -12,7 +12,8 @@ This is a Maven Plugin to control ZAProxy. It is based on https://code.google.co
 #### build
 
 ```
-$ mvn clean install
+$ mvn clean install -DzapApiPath=/workspace-tmp/divers/zaproxy-read-only/build/zap/zap-api-v2-4.jar
+#-DzapApiPath=/workspace/slave/tools/com.cloudbees.jenkins.plugins.customtools.CustomTool/ZAPROXY/ZAP_2.8.0/ZAP_2.8.0/zap-2.8.0.jar
 ```
 
 #### integration test

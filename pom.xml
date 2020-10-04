@@ -13,8 +13,13 @@
 		<zapApiPath>/workspace/divers/zaproxy-read-only/build/zap/zap-api-v2-4.jar</zapApiPath>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		
-		<maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
+
+		<jdkLevel>1.8</jdkLevel>
+		<jdkVersion>1.8.0</jdkVersion>
+		<maven.compiler.source>${jdkLevel}</maven.compiler.source>
+		<maven.compiler.target>${jdkLevel}</maven.compiler.target>
+
+		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
 		<maven.plugin.plugin.plugin.version>3.3</maven.plugin.plugin.plugin.version>
 	</properties>
 
@@ -24,9 +29,12 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven.compiler.plugin.version}</version>
-				<configuration>
-					<source>${jdkLevel}</source>
-					<target>${jdkLevel}</target>
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+						<compilerVersion>${maven.compiler.source}</compilerVersion>
+						<meminitial>128m</meminitial>
+						<maxmem>512m</maxmem>
 					<debug>off</debug>
 					<debuglevel>none</debuglevel>
 				</configuration>
@@ -142,7 +150,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
     <reporting>
         <plugins>
             <plugin>
@@ -151,5 +159,5 @@
                 <version>${maven.plugin.plugin.plugin.version}</version>
             </plugin>
         </plugins>
-    </reporting>	
+    </reporting>
 </project>
